@@ -1,0 +1,198 @@
+//Big0
+- its a notation to calculate the computationsl complexity.
+- 2 complexity - Time and Space
+- Time complexity - Amount of time to run relative to the input size
+- Space complexity - Amount of Memory to run relative to the input size.
+
+n, which usually denotes the length of an input array or string.
+When written, the function is wrapped by a capital O
+
+When written, the function is wrapped by a capital O. Here are some example complexities:
+
+0(n) , 0(n2)
+These functions represent the complexity. For example, you would say "The time complexity of my algorithm is O(n)" or "The space complexity of my algorithm is O(n^2)".
+
+----------------------------------------------------------------
+Calculating complexity
+
+1) What is Complexity?
+Algorithm complexity measures how an algorithm's time or memory usage grows as the input size increases, ignoring constants and focusing on the largest growth factor.
+
+2) Analyzing time complexity
+Basic Examples:
+O(n): Iterating through an array once (e.g., printing each element) scales linearly with the size 𝑛
+O(n) with a constant multiplier (e.g., printing each element 500,000 times): Still O(n) because constants are ignored in big O notation.
+
+Nested Loops:
+O(n2): Two nested loops over the same array (e.g., printing the product of every pair of elements) scale quadratically with n.
+Dependent Loops: For nested loops where iterations decrease (e.g., 𝑗=𝑖j=i onward), the total iterations approximate 𝑛2/2n 2/2, which simplifies to 𝑂(𝑛2)O(n 2).
+
+Multiple Arrays:
+O(n+m): Iterating through two arrays of different sizes n and m adds their complexities.
+
+Logarithmic Complexity O(logn)):
+Used when the input size is reduced by a fraction at every step (e.g., binary search).
+O(nlogn): Combines linear and logarithmic complexities, common in efficient sorting algorithm
+
+Big O Rules:
+Ignore constants and lower-order terms.
+Focus on how the algorithm scales as the input size grows.
+
+3) Analyzing space complexity
+
+General Rule:
+
+Space complexity measures the memory an algorithm uses relative to the input size.
+Ignore input size, and usually the output size unless explicitly required.
+Examples:
+
+O(1): Only uses a constant amount of memory, e.g., storing a single variable.
+
+O(n): Memory grows linearly with n, e.g., storing an array of size 𝑛
+
+O(n⋅m): Memory grows with the product of n and m, e.g., creating a grid for two arrays of sizes n and 𝑚
+
+Key Points:
+
+Allocated memory (e.g., arrays, grids) contributes to space complexity.
+Practice helps improve understanding of analyzing space and time complexities.
+----------------------------------------------------------------
+
+Recursion:
+
+Recursion is a problem solving method. In code, recursion is implemented using a function that calls itself.
+
+
+Summary of Recursion
+
+What is Recursion?
+
+A problem-solving method where a function calls itself to solve smaller subproblems.
+Opposite of iteration (e.g., for loops and while loops).
+Key Concepts:
+
+Base Case: Stops the recursive calls to prevent infinite loops.
+Recursive Step: The function breaks down the problem and calls itself with smaller inputs.
+Call Stack: Each function call is placed on the stack until it returns, maintaining separate scopes for variables.
+Examples:
+
+Printing numbers with recursion requires a base case to stop, or it will run indefinitely.
+Example of recursion order: The function completes in reverse order as calls return.
+Applications:
+
+Breaking problems into subproblems, e.g., finding Fibonacci numbers using the recurrence relation:
+F(n)=F(n−1)+F(n−2)
+Base cases: 
+F(0)=0,F(1)=1.
+Recursive solution builds results for smaller problems and combines them.
+Use Cases:
+Recursion is most useful for problems naturally expressed in terms of subproblems (e.g., Fibonacci sequence, tree traversals).
+----------------------------------------------------------------
+Summary: Arrays and Strings
+Overview:
+
+Arrays and strings are ordered groups of elements and fundamental data structures in algorithm problems.
+Arrays differ across programming languages. E.g., Python uses flexible lists, while C++ requires pre-defined sizes and types for arrays but supports dynamic arrays via std::vector.
+Arrays are often dynamic in algorithm problems, despite the technical definition that arrays cannot be resized.
+Strings are immutable in Python and Java but mutable in C++.
+Understanding mutability is crucial for optimizing performance, especially when dealing with large data structures.
+Key Concepts:
+
+Mutability:
+
+Mutable: Can be changed in-place (e.g., lists in Python).
+Immutable: Cannot be changed; modifications require creating a new structure (e.g., strings in Python).
+Performance:
+
+Modifying immutable data structures can be costly, especially with large sizes (
+O(n)).
+Two Pointers Technique
+Concept:
+
+Use two integer pointers to iterate over arrays or strings efficiently.
+Common implementations:
+Pointers moving towards each other:
+Start one pointer at the beginning and another at the end of the input.
+Move pointers closer until they meet.
+Pointers moving through two inputs simultaneously:
+Use one pointer per input and move them based on conditions.
+Advantages:
+
+Typically 
+O(n) time complexity, as pointers traverse the input linearly.
+O(1) space complexity, using constant extra space.
+Examples:
+
+Palindrome Check:
+
+Compare characters from the start and end of a string.
+Time: 
+O(n), Space: 
+O(1).
+Two Sum (Sorted Array):
+
+Use pointers to check if a pair sums to a target value.
+Move the left pointer to increase the sum or the right pointer to decrease it.
+Time: 
+O(n), Space: 
+O(1).
+Merge Two Sorted Arrays:
+
+Compare elements from two arrays using two pointers and build a merged sorted array.
+Time: 
+O(n+m), Space: 
+O(1) (excluding output).
+Check Subsequence:
+
+Move pointers through strings to verify if one string is a subsequence of another.
+Time: 
+O(n+m), Space: 
+O(1).
+Closing Notes:
+
+Two pointers is a versatile technique with variations depending on problem requirements.
+Efficient for linear traversal and problems involving comparisons or merging.
+Practice problems solidify the understanding of this technique and uncover further applications.
+
+----------------------------------------------------------------
+Summary: Hashing and Hash Maps
+Introduction to Data Structures
+Data structures organize data efficiently, consisting of:
+   Interface: Defines operations and interactions (e.g., appending, removing elements).
+   Implementation: Underlying code and algorithms enabling functionality.
+Hashing Basics
+Hash Function: Converts input (key) into a fixed-size integer deterministically.
+Example algorithm:
+  Convert characters to positions in the alphabet.
+  Multiply by position in the string and sum results.
+  Apply modulo operation to constrain output to a range.
+Hash Maps
+    Combines hash functions and arrays, enabling mapping of keys (not restricted to integers) to values.
+Key Characteristics:
+    Store key-value pairs.
+    Operations (add, remove, update, check existence) in O(1) time.
+Unordered structure (order of insertion is irrelevant).
+
+Advantages
+    Efficiency: Faster operations compared to arrays.
+    Flexibility: Handles arbitrary keys without knowing max size beforehand.
+    Built-In Implementations: Available in all major programming languages.
+Disadvantages
+    Space Overhead: Larger fixed-size arrays and expensive resizing.
+    Collision Handling: Slows performance (e.g., chaining uses linked lists to resolve collisions).
+    Collisions
+    Occurs when two keys hash to the same value.
+Solution: Chaining stores collided key-value pairs in linked lists.
+Prevention: Use a prime number for array size/modulus (e.g., 10,007 or 1,000,003).
+Sets
+    Similar to hash maps but only checks element existence without mapping keys to values.
+    Operations (add, remove, check) in O(1) time.
+    Do not track frequency of elements.
+
+Key Design Notes
+    Use immutable data types as keys (e.g., tuples in Python).
+    Arrays can be converted into immutable forms for keys (e.g., strings or tuples).
+
+Key Takeaways
+    Hash maps are versatile, powerful, and a must-know for algorithm design.
+    Tradeoffs involve space, collision handling, and suitability for small datasets.
